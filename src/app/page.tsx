@@ -17,6 +17,7 @@ import {
   CloseButton,
   VStack,
   Portal,
+  Menu,
 } from '@chakra-ui/react';
 import Draggable from 'react-draggable';
 
@@ -149,7 +150,7 @@ export default function DesktopPortfolio() {
         </Portal>
       </Dialog.Root>
 
-      {/* Windows95-style Taskbar */}
+      {/* Windows95-style Taskbar with Start Button */}
       <Box
         position="absolute"
         bottom="0"
@@ -162,10 +163,95 @@ export default function DesktopPortfolio() {
         paddingX="10px"
         borderTop="2px solid #fff"
       >
-        <Button size="sm" colorScheme="gray" variant="solid">
-          Search
-        </Button>
+        <Menu.Root positioning={{ placement: "top-start"}}>
+          <Menu.Trigger
+            asChild
+            bg="#C0C0C0"
+            border="2px solid #fff"
+            _hover={{ bg: "#E0E0E0" }}
+          >
+            <Button
+              bg="#C0C0C0"
+              border="2px solid #fff"
+              _hover={{ bg: "#E0E0E0" }}
+            >
+              Start
+            </Button>
+          </Menu.Trigger>
+          <Portal>
+            <Menu.Positioner>
+            <Menu.Content
+              bg="#C0C0C0"
+              border="2px solid #000"
+              w="250px"
+              p={2}
+            >
+                <Menu.Item
+                  value="Programs"
+                  bg="#C0C0C0"
+                  _hover={{ bg: "#E0E0E0" }}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Image
+                    src="/icons/programs-icon.png"
+                    alt="Programs"
+                    boxSize="20px"
+                    mr={2}
+                  />
+                  Programs
+                </Menu.Item>
+                <Menu.Item
+                  value="Documents"
+                  bg="#C0C0C0"
+                  _hover={{ bg: "#E0E0E0" }}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Image
+                    src="/icons/documents-icon.png"
+                    alt="Documents"
+                    boxSize="20px"
+                    mr={2}
+                  />
+                  Documents
+                </Menu.Item>
+                <Menu.Item
+                  value="Settings"
+                  bg="#C0C0C0"
+                  _hover={{ bg: "#E0E0E0" }}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Image
+                    src="/icons/settings-icon.png"
+                    alt="Settings"
+                    boxSize="20px"
+                    mr={2}
+                  />
+                  Settings
+                </Menu.Item>
+                <Menu.Item
+                  value="Run"
+                  bg="#C0C0C0"
+                  _hover={{ bg: "#E0E0E0" }}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Image
+                    src="/icons/run-icon.png"
+                    alt="Run"
+                    boxSize="20px"
+                    mr={2}
+                  />
+                  Run...
+                </Menu.Item>
+              </Menu.Content>
+            </Menu.Positioner>
+          </Portal>
+        </Menu.Root>
       </Box>
+      
     </Box>
   );
 }
